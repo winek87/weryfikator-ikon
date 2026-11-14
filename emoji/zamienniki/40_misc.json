@@ -1,7 +1,7 @@
 {
   "name": "misc",
-  "description": "Zamienniki dla pozostałych emoji: pogoda, komunikacja, symbole, narzędzia. Zawiera 51 wpisów w trzech kategoriach: (1) MAŁA — BMP text-default (☀ ☁ ☂ ☎ ✉ ❤ ✏ ★ ✂), (2) OK — emoji default bez zmian (⌚ ⌛ ⏰ 🔧 ⚡ ⭐ ⭕ ✅ ❌ ❓ ❗), (3) FRAGILE — astralne Emoji_Presentation=No (🛡 🗡 🕯 🕰 🕵 🕶 🕹 🖥 🖨 🖱 🖼 🗑 🗒 🗓 🗝 🗞 🗣 🗺 🛋 🛍 🛎 🛏 🛢 🛤 🛥 🛰 🛳 🕷). Wszystkie rec są z EMOJI_DEFAULT_BMP lub astralne z Emoji_Presentation=Yes — nigdy z VS16 (który wprowadza ROZJAZD). Nie duplikuje 5 kluczy z 10_settings.json (🗂 🗃 🗄 🛠 🗜). Pozostałe ~30 FRAGILE z ASTRAL_TEXT_DEFAULT (np. 🌡 🏔 🖐) czekają na własne wpisy, gdy pojawią się w kodzie.",
-  "version": "3.0",
+  "description": "Zamienniki dla pozostałych emoji: pogoda, komunikacja, symbole, narzędzia, sport, geografia. Zawiera 51 wpisów z v3.0 (MAŁA, OK, FRAGILE) + 27 nowych z v3.1 (ASTRAL_TEXT_DEFAULT bez wcześniejszych zamienników). Wszystkie rec są emoji default (astralne lub BMP z Emoji_Presentation=Yes) — nigdy z VS16.",
+  "version": "3.1",
   "replacements": {
     "☀": {
       "rec": "🌞",
@@ -388,6 +388,219 @@
         "[BUG]"
       ],
       "why": "U+1F577 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F41B emoji default — gąsienica/robak. Uwaga: 🕸 (U+1F578) też jest FRAGILE."
+    },
+    "🌡": {
+      "rec": "🩺",
+      "alt": [
+        "[T]",
+        "🌡 (text)"
+      ],
+      "why": "U+1F321 ASTRAL_TEXT_DEFAULT; U+1FA7A emoji default (zdrowie)"
+    },
+    "🌤": {
+      "rec": "⛅",
+      "alt": [
+        "🌞",
+        "[S]"
+      ],
+      "why": "U+1F324 ASTRAL_TEXT_DEFAULT; U+26C5 emoji default"
+    },
+    "🌥": {
+      "rec": "⛅",
+      "alt": [
+        "☁",
+        "[C]"
+      ],
+      "why": "U+1F325 ASTRAL_TEXT_DEFAULT; U+26C5 emoji default"
+    },
+    "🌦": {
+      "rec": "🌧",
+      "alt": [
+        "💧",
+        "[R]"
+      ],
+      "why": "U+1F326 ASTRAL_TEXT_DEFAULT; U+1F327 to też FRAGILE — użyj 💧"
+    },
+    "🌧": {
+      "rec": "💧",
+      "alt": [
+        "☔",
+        "[R]"
+      ],
+      "why": "U+1F327 ASTRAL_TEXT_DEFAULT; U+1F4A7 emoji default"
+    },
+    "🌨": {
+      "rec": "💧",
+      "alt": [
+        "❄",
+        "[S]"
+      ],
+      "why": "U+1F328 ASTRAL_TEXT_DEFAULT; U+1F4A7 emoji default"
+    },
+    "🌩": {
+      "rec": "⚡",
+      "alt": [
+        "💥",
+        "[L]"
+      ],
+      "why": "U+1F329 ASTRAL_TEXT_DEFAULT; U+26A1 emoji default (FONT_RISKY, ale znane)"
+    },
+    "🌪": {
+      "rec": "🌀",
+      "alt": [
+        "💨",
+        "[T]"
+      ],
+      "why": "U+1F32A ASTRAL_TEXT_DEFAULT; U+1F300 emoji default"
+    },
+    "🌫": {
+      "rec": "💨",
+      "alt": [
+        "☁",
+        "[F]"
+      ],
+      "why": "U+1F32B ASTRAL_TEXT_DEFAULT; U+1F4A8 emoji default"
+    },
+    "🌬": {
+      "rec": "💨",
+      "alt": [
+        "[W]"
+      ],
+      "why": "U+1F32C ASTRAL_TEXT_DEFAULT; U+1F4A8 emoji default"
+    },
+    "🌶": {
+      "rec": "🥵",
+      "alt": [
+        "🔥",
+        "[H]"
+      ],
+      "why": "U+1F336 ASTRAL_TEXT_DEFAULT; U+1F975 emoji default"
+    },
+    "🍽": {
+      "rec": "🍴",
+      "alt": [
+        "🍴",
+        "[F]"
+      ],
+      "why": "U+1F37D ASTRAL_TEXT_DEFAULT; U+1F374 emoji default"
+    },
+    "🎖": {
+      "rec": "🏅",
+      "alt": [
+        "🏆",
+        "[M]"
+      ],
+      "why": "U+1F396 ASTRAL_TEXT_DEFAULT; U+1F3C5 emoji default"
+    },
+    "🎗": {
+      "rec": "🎀",
+      "alt": [
+        "🏵",
+        "[R]"
+      ],
+      "why": "U+1F397 ASTRAL_TEXT_DEFAULT; U+1F380 emoji default"
+    },
+    "🎙": {
+      "rec": "🎤",
+      "alt": [
+        "🎙 (text)",
+        "[M]"
+      ],
+      "why": "U+1F399 ASTRAL_TEXT_DEFAULT; U+1F3A4 emoji default"
+    },
+    "🎞": {
+      "rec": "🎬",
+      "alt": [
+        "🎥",
+        "[F]"
+      ],
+      "why": "U+1F39E ASTRAL_TEXT_DEFAULT; U+1F3AC emoji default"
+    },
+    "🎟": {
+      "rec": "🎫",
+      "alt": [
+        "[T]"
+      ],
+      "why": "U+1F39F ASTRAL_TEXT_DEFAULT; U+1F3AB emoji default"
+    },
+    "🏋": {
+      "rec": "💪",
+      "alt": [
+        "🏋 (text)",
+        "[W]"
+      ],
+      "why": "U+1F3CB ASTRAL_TEXT_DEFAULT; U+1F4AA emoji default"
+    },
+    "🏌": {
+      "rec": "⛳",
+      "alt": [
+        "🏌 (text)",
+        "[G]"
+      ],
+      "why": "U+1F3CC ASTRAL_TEXT_DEFAULT; U+26F3 emoji default"
+    },
+    "🏎": {
+      "rec": "🏁",
+      "alt": [
+        "🏎 (text)",
+        "[C]"
+      ],
+      "why": "U+1F3CE ASTRAL_TEXT_DEFAULT; U+1F3C1 emoji default"
+    },
+    "🏔": {
+      "rec": "🗻",
+      "alt": [
+        "🏔 (text)",
+        "[M]"
+      ],
+      "why": "U+1F3D4 ASTRAL_TEXT_DEFAULT; U+1F5FB emoji default"
+    },
+    "🏕": {
+      "rec": "⛺",
+      "alt": [
+        "[C]"
+      ],
+      "why": "U+1F3D5 ASTRAL_TEXT_DEFAULT; U+26FA emoji default"
+    },
+    "🏖": {
+      "rec": "🌴",
+      "alt": [
+        "🏖 (text)",
+        "[B]"
+      ],
+      "why": "U+1F3D6 ASTRAL_TEXT_DEFAULT; U+1F334 emoji default"
+    },
+    "🏗": {
+      "rec": "🏢",
+      "alt": [
+        "🏗 (text)",
+        "[B]"
+      ],
+      "why": "U+1F3D7 ASTRAL_TEXT_DEFAULT; U+1F3E2 emoji default"
+    },
+    "🏘": {
+      "rec": "🏠",
+      "alt": [
+        "🏘 (text)",
+        "[H]"
+      ],
+      "why": "U+1F3D8 ASTRAL_TEXT_DEFAULT; U+1F3E0 emoji default"
+    },
+    "🏙": {
+      "rec": "🌆",
+      "alt": [
+        "🏙 (text)",
+        "[C]"
+      ],
+      "why": "U+1F3D9 ASTRAL_TEXT_DEFAULT; U+1F306 emoji default"
+    },
+    "🏛": {
+      "rec": "🏦",
+      "alt": [
+        "🏛 (text)",
+        "[B]"
+      ],
+      "why": "U+1F3DB ASTRAL_TEXT_DEFAULT; U+1F3E6 emoji default"
     }
   }
 }
