@@ -1,0 +1,42 @@
+{
+  "name": "settings",
+  "description": "Zamienniki dla emoji ustawień, folderów, konfiguracji i narzędzi. Uwaga: 🗂 🗃 🗄 🛠 🗜 to astralne Emoji_Presentation=No (kategoria FRAGILE) — wymagają zamiennika z EMOJI_DEFAULT_BMP lub astralnego z Emoji_Presentation=Yes. ⚙ to BMP text-default (MAŁA). Wszystkie zalecane zamienniki są bezpieczne (emoji default), alternatywy ASCII dla kontekstów bez emoji.",
+  "version": "2.0",
+  "replacements": {
+    "⚙": {
+      "rec": "🔧",
+      "alt": ["🧰", "[=]", "[S]"],
+      "why": "U+2699 BMP text-default (mały); U+1F527/U+1F9F0 emoji default — duże i kolorowe"
+    },
+    "🗂": {
+      "rec": "📂",
+      "alt": ["📁", "[F]", "[D]"],
+      "why": "U+1F5C2 ASTRAL_TEXT_DEFAULT (FRAGILE — font może ciąć); U+1F4C2 emoji default"
+    },
+    "🗀": {
+      "rec": "📁",
+      "alt": ["📂", "[F]"],
+      "why": "U+1F5C0 nie jest formalnie emoji (Emoji=No, brak w zbiorach); U+1F4C1 emoji default"
+    },
+    "🗃": {
+      "rec": "📦",
+      "alt": ["📇", "[B]", "[C]"],
+      "why": "U+1F5C3 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4E6 emoji default — semantycznie 'przechowywanie'"
+    },
+    "🗄": {
+      "rec": "📦",
+      "alt": ["📚", "[B]"],
+      "why": "U+1F5C4 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4E6 emoji default — szafa na dokumenty"
+    },
+    "🛠": {
+      "rec": "🔧",
+      "alt": ["🧰", "[T]", "[W]"],
+      "why": "U+1F6E0 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F527 emoji default"
+    },
+    "🗜": {
+      "rec": "🔧",
+      "alt": ["[C]", "[Z]"],
+      "why": "U+1F5DC ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F527 emoji default (najbliższy semantycznie)"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "name": "warnings",
+  "description": "Zamienniki dla emoji ostrzeżeń, błędów, potwierdzeń i statusów. Wszystkie klucze to BMP text-default (kategoria MAŁA) — renderują się małe i monochromatyczne. Zalecane zamienniki są z EMOJI_DEFAULT_BMP (duże, kolorowe), alternatywy ASCII dla kontekstów bez emoji. Uwaga: ✓ (U+2713) i ✗ (U+2717) są wykrywane przez 35_small_symbols.json (Emoji=No), ale zamienniki są tutaj — to celowe rozdzielenie: detekcja osobno, zamiana osobno.",
+  "version": "2.0",
+  "replacements": {
+    "⚠": {
+      "rec": "🚨",
+      "alt": [
+        "❗",
+        "[!]",
+        "[W]"
+      ],
+      "why": "U+26A0 BMP text-default (mały); U+1F6A8 emoji default — sygnalizuje alarm/ostrzeżenie"
+    },
+    "✔": {
+      "rec": "✅",
+      "alt": [
+        "[v]",
+        "[Y]"
+      ],
+      "why": "U+2714 BMP text-default (Emoji=Yes ale Presentation=No); U+2705 emoji default"
+    },
+    "✖": {
+      "rec": "❌",
+      "alt": [
+        "[x]",
+        "[N]"
+      ],
+      "why": "U+2716 BMP text-default (Emoji=Yes ale Presentation=No); U+274C emoji default"
+    },
+    "✗": {
+      "rec": "❌",
+      "alt": [
+        "[x]",
+        "[N]"
+      ],
+      "why": "U+2717 nie jest formalnie emoji (Emoji=No), renderuje się mały; U+274C emoji default"
+    },
+    "☑": {
+      "rec": "✅",
+      "alt": [
+        "[v]",
+        "[X]"
+      ],
+      "why": "U+2611 BMP text-default (ballot box with check); U+2705 emoji default"
+    },
+    "☒": {
+      "rec": "❌",
+      "alt": [
+        "[x]",
+        "[X]"
+      ],
+      "why": "U+2612 nie jest formalnie emoji (Emoji=No), renderuje się mały; U+274C emoji default"
+    },
+    "✓": {
+      "rec": "✅",
+      "alt": [
+        "[v]",
+        "[Y]",
+        "👋",
+        "🎉",
+        "✨",
+        "🏁",
+        "🥂"
+      ],
+      "why": "U+2713 nie jest formalnie emoji (Emoji=No), renderuje się mały; U+2705 emoji default"
+    },
+    "☠": {
+      "rec": "💀",
+      "alt": [
+        "[X]",
+        "[D]"
+      ],
+      "why": "U+2620 BMP text-default (czasza i skrzyżowane piszczele); U+1F480 emoji default"
+    },
+    "⁉": {
+      "rec": "❗",
+      "alt": [
+        "[!?]",
+        "[?]"
+      ],
+      "why": "U+2049 BMP text-default (interrobang); U+2757 emoji default — wykrzyknik"
+    },
+    "‼": {
+      "rec": "❗",
+      "alt": [
+        "[!!]",
+        "[!]"
+      ],
+      "why": "U+203C BMP text-default (double exclamation); U+2757 emoji default"
+    }
+  }
+}

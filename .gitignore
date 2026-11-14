@@ -1,0 +1,135 @@
+# ════════════════════════════════════════════════════════════════
+# .gitignore — skaner emoji + Rust projekt
+# ════════════════════════════════════════════════════════════════
+# Sekcje:
+#   1. Python — cache, bajtkod, venv, dystrybucja
+#   2. Backupy pluginów — .bak z wizarda
+#   3. Narzędzia deweloperskie — pytest, mypy, ruff
+#   4. Edytory i systemy — IDE, OS
+#   5. Rust — target/, Cargo.lock (dla binarek)
+#   6. Lokalne pliki — historia wizarda, konfiguracje
+# ════════════════════════════════════════════════════════════════
+
+
+# ── 1. Python — cache i bajtkod ─────────────────────────────────
+# __pycache__/ tworzy się przy każdym importcie, *.pyc to jego
+# zawartość. Nie commitować — to artefakty, nie źródła.
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ── 1a. Python — dystrybucja i paczkowanie ─────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+pip-wheel-metadata/
+MANIFEST
+*.manifest
+
+# ── 1b. Python — środowiska wirtualne ──────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+
+# ── 2. Backupy pluginów (z wizarda) ────────────────────────────
+# Wizard [d] przenosi usunięte pluginy do <plik>.YYYY-MM-DD_HHMM.bak.
+# [e] (edycja) i patch generatora też robią .bak. Nie commitować
+# — to lokalne kopie zapasowe, każdy ma własne.
+*.bak
+*.bak.*
+*.orig
+*.rej
+
+# ── 2a. Lokalne nadpisania pluginów ────────────────────────────
+# Jeśli ktoś testuje własne pluginy przez --plugins-dir, trzyma je
+# poza repo (np. ~/moje_emoji/). Ten wpis chroni przed przypadkowym
+# commitem, gdyby ktoś utworzył je w repo.
+# emoji_local/
+# moje_emoji/
+
+
+# ── 3. Narzędzia deweloperskie ─────────────────────────────────
+# pytest — cache testów i ostatni run
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# mypy — cache typów
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ruff — cache lintingu
+.ruff_cache/
+
+# ── 3a. IDE / edytory ──────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+\#*\#
+.\#*
+
+
+# ── 4. Systemy operacyjne ──────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+
+# ── 5. Rust — artefakty kompilacji ────────────────────────────
+# target/ to katalog builda cargo (debug + release). Zajmuje GB,
+# nie commitować — `cargo build` odtworzy.
+target/
+
+# Cargo.lock — dla binarek commitować, dla bibliotek NIE.
+# Ten projekt to binarka (dashboard hub), więc Cargo.lock
+# powinien być w repo. Dlatego NIE ignorujemy go tutaj.
+
+# ── 5a. Rust — backupy plików źródłowych ──────────────────────
+# Patch skryptów robi .bak przy edycji .rs (np. llvm.rs.bak).
+# Już pokryte przez *.bak w sekcji 2, ale jawnie dla pewności.
+src/**/*.bak
+src/**/*.rs.bak
+
+
+# ── 6. Lokalne pliki projektu ─────────────────────────────────
+# Historia poleceń wizarda — jak ~/.bash_history, ale dla emoji_wizard.
+# Każdy user ma własną, nie commitować.
+.emoji_wizard_history
+
+# Osobiste notatki / TODO, które nie powinny trafić do repo
+NOTES.md
+TODO.local.md
+scratch/
+*.local.*
+
+
+# ── 7. Rzeczy, które MOGĄ być w repo (wyjaśnienie) ──────────
+# Te pliki są CELOWO commitowane — nie dodawaj ich do .gitignore:
+#
+#   requirements.txt      ← zależności (wcwidth)
+#   pyproject.toml        ← metadane pakietu
+#   README.md             ← dokumentacja
+#   emoji/**/*.json       ← pluginy (źródła, nie artefakty)
+#   emoji/**/*.py         ← pluginy .py (źródła)
+#   emoji/**/_README.md   ← dokumentacja pluginów
+#   tools/gen_plugin.py   ← CLI generatora
+#   tools/emoji_wizard.py ← CLI wizarda
+#   scan_emoji.py         ← CLI skanera
+#   Cargo.toml            ← manifest Rust
+#   Cargo.lock            ← lockfile Rust (binarka → commit)
+#   src/**/*.rs           ← źródła Rust

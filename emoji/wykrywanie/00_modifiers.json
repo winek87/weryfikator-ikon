@@ -1,0 +1,29 @@
+{
+  "name": "modifiers",
+  "description": "Modyfikatory prezentacji Unicode: VS16, VS15, ZWJ, KEYCAP. Definiują, jak terminal ma wyświetlić poprzedzający znak. Bez tych definicji skaner nie rozpoznałby klastrów typu '⚙️' (U+2699 U+FE0F) jako jednego emoji.",
+  "version": "1.1",
+  "codepoints": [
+    {
+      "cp": "U+FE0F",
+      "kind": "VS16",
+      "label": "Variation Selector-16 — wymusza EMOJI presentation (duży, kolorowy). Główny sprawca buga 'połówki' w terminalach: wcwidth traktuje go jako 0, ale terminal rysuje całe emoji jako 2 komórki."
+    },
+    {
+      "cp": "U+FE0E",
+      "kind": "VS15",
+      "label": "Variation Selector-15 — wymusza TEXT presentation (mały, monochromatyczny). Przeciwieństwo VS16."
+    },
+    {
+      "cp": "U+200D",
+      "kind": "ZWJ",
+      "label": "Zero Width Joiner — łączy kilka znaków w jedną sekwencję (np. rodzina 👨‍👩‍👧 to 5 znaków sklejonych ZWJ). Skaner traktuje ZWJ jako część klastra."
+    },
+    {
+      "cp": "U+20E3",
+      "kind": "KEYCAP",
+      "label": "Combining Enclosing Keycap — rysuje znak w ramce (np. 1️⃣ to '1' + VS16 + KEYCAP)."
+    }
+  ],
+  "ranges": [],
+  "sets": {}
+}

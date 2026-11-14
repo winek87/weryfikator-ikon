@@ -1,0 +1,145 @@
+# ════════════════════════════════════════════════════════════════
+# pyproject.toml — metadane pakietu emoji-scanner
+# ════════════════════════════════════════════════════════════════
+# Format PEP 621. Build backend: setuptools.
+#
+# Instalacja lokalna (editable, do dewelopmentu):
+#     pip install -e ".[full,dev]"
+#
+# Instalacja bez dewelopmentu:
+#     pip install ".[full]"
+#
+# Po instalacji dostępne są komendy:
+#     scan-emoji <plik|folder> [opcje]
+#     scan-emoji --help
+#
+# Narzędzia w `tools/` (gen_plugin.py, emoji_wizard.py) NIE są
+# instalowane jako komendy — uruchamiane jako `python tools/X.py`
+# z katalogu projektu (wymagają dostępu do plików pluginów).
+# ════════════════════════════════════════════════════════════════
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+# ── metadane projektu ──────────────────────────────────────────
+[project]
+name = "emoji-scanner"
+version = "0.1.0"
+description = "Skaner emoji dla plików źródłowych — wykrywa, mierzy szerokość, proponuje zamienniki"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Winek87"},
+    {name = "DeepSeek"},
+]
+keywords = ["emoji", "terminal", "cli", "unicode", "wcwidth", "tui"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Text Processing",
+    "Topic :: Utilities",
+]
+
+# ── zależności ─────────────────────────────────────────────────
+# Brak twardych zależności — skaner działa na czystym Pythonie 3.10+.
+# `wcwidth` jest opcjonalne (patrz [project.optional-dependencies]).
+dependencies = []
+
+[project.optional-dependencies]
+# `pip install ".[full]"` — dokładny pomiar szerokości
+full = ["wcwidth>=0.2.5"]
+# `pip install ".[dev]"` — testy i linting
+dev = ["pytest>=7", "ruff>=0.1", "mypy>=1.5"]
+
+# ── komendy CLI ────────────────────────────────────────────────
+# `scan-emoji` → scan_emoji.py (top-level module, patrz py-modules niżej)
+# Wizard i generator pluginów NIE są tu — uruchamiane jako
+# `python tools/emoji_wizard.py` / `python tools/gen_plugin.py`
+# (wymagają dostępu do katalogu pluginów w projekcie).
+[project.scripts]
+scan-emoji = "scan_emoji:main"
+
+# ── linki ──────────────────────────────────────────────────────
+# Dostosuj do swojego repo (jeśli publikujesz na GitHubie).
+[project.urls]
+# Homepage = "https://github.com/Winek87/pyt-rust"
+# Repository = "https://github.com/Winek87/pyt-rust"
+
+
+# ── setuptools: co pakujemy ────────────────────────────────────
+[tool.setuptools]
+# `emoji/` — pakiet Pythona z logiką (loader, detection, scanner, reporter, generator)
+packages = ["emoji"]
+# `scan_emoji.py` — top-level module, wystawiany jako `scan-emoji`
+py-modules = ["scan_emoji"]
+
+# ── pliki danych pakietu ───────────────────────────────────────
+# KLUCZOWE: bez tego `pip install` NIE dołączy pluginów .json.
+# Typowy błąd — pakiet działa lokalnie, ale po instalacji nie ma
+# `emoji/wykrywanie/*.json` w site-packages.
+[tool.setuptools.package-data]
+emoji = [
+    "wykrywanie/*.json",
+    "wykrywanie/*.py",
+    "wykrywanie/*.md",
+    "zamienniki/*.json",
+    "zamienniki/*.py",
+    "zamienniki/*.md",
+]
+
+
+# ── ruff (linting) ─────────────────────────────────────────────
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+exclude = [".git", "__pycache__", "target", "build", "dist", ".venv", "venv"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "W",   # pycodestyle warnings
+    "I",   # isort
+    "N",   # pep8-naming
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+]
+ignore = [
+    "E501",  # line-too-long — wyłączone, bo mamy długie stringi z przykładami
+]
+
+
+# ── pytest ─────────────────────────────────────────────────────
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q"
+# addopts: -ra → podsumowanie krótkie, -q → ciche (bez banneru)
+# Gdy dodasz testy — utwórz `tests/` w katalogu projektu.
+
+
+# ── mypy (opcjonalne, dla [dev]) ──────────────────────────────
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+exclude = [
+    "target/",
+    "build/",
+    "dist/",
+    "\\.venv/",
+    "venv/",
+]

@@ -1,0 +1,47 @@
+{
+  "name": "media",
+  "description": "Zamienniki dla emoji mediów, odtwarzania i przycisków multimedialnych. Większość kluczy to BMP text-default (kategoria MAŁA) — renderują się małe i monochromatyczne. Dla przycisków bez dobrego emoji default (⏸ ⏹ ⏏) zalecany zamiennik to ASCII w nawiasach — najbezpieczniejszy w terminalu. Dla ⏭ ⏮ używamy ⏩ ⏪ (fast forward/reverse, U+23E9/U+23EA, emoji default) — semantycznie bliskie, wizualnie jednoznaczne. Uwaga: ▶️ ⏸️ ⏭️ itd. (z VS16) NIE są zalecane — wprowadzają bug ROZJAZD (wcwidth kłamie o szerokości).",
+  "version": "2.0",
+  "replacements": {
+    "▶": {
+      "rec": "🎬",
+      "alt": ["[>]", "[P]", "[PLAY]"],
+      "why": "U+25B6 BMP text-default (mały); U+1F3AC emoji default — symbol startu/odtwarzania. Uwaga: ▶️ (z VS16) daje ROZJAZD, nie używaj."
+    },
+    "⏸": {
+      "rec": "[||]",
+      "alt": ["[P]", "[PAUSE]", "⏯"],
+      "why": "U+23F8 BMP text-default (mały), brak emoji default dla pauzy; ASCII [||] najbezpieczniejsze. ⏸️ (z VS16) daje ROZJAZD."
+    },
+    "⏭": {
+      "rec": "⏩",
+      "alt": ["[>>]", "[N]", "[NEXT]"],
+      "why": "U+23ED BMP text-default (mały); U+23E9 emoji default (fast forward) — semantycznie bliskie, wizualnie jednoznaczne. ⏭️ (z VS16) daje ROZJAZD."
+    },
+    "⏮": {
+      "rec": "⏪",
+      "alt": ["[<<]", "[B]", "[PREV]"],
+      "why": "U+23EE BMP text-default (mały); U+23EA emoji default (fast reverse) — semantycznie bliskie. ⏮️ (z VS16) daje ROZJAZD."
+    },
+    "⏹": {
+      "rec": "[#]",
+      "alt": ["[S]", "[STOP]", "⏹"],
+      "why": "U+23F9 BMP text-default (mały), brak emoji default dla stop; ASCII [#] najbezpieczniejsze. ⏹️ (z VS16) daje ROZJAZD."
+    },
+    "⏺": {
+      "rec": "🔴",
+      "alt": ["[o]", "[R]", "[REC]"],
+      "why": "U+23FA BMP text-default (mały); U+1F534 emoji default (czerwone koło) — wizualnie odpowiednik przycisku nagrywania. ⏺️ (z VS16) daje ROZJAZD."
+    },
+    "⏏": {
+      "rec": "[^]",
+      "alt": ["[E]", "[EJECT]", "⏏"],
+      "why": "U+23CF BMP text-default (mały), brak emoji default dla eject; ASCII [^] najbezpieczniejsze. ⏏️ (z VS16) daje ROZJAZD."
+    },
+    "🎬": {
+      "rec": "🎬",
+      "alt": [],
+      "why": "OK — U+1F3AC emoji default, nie wymaga zmiany"
+    }
+  }
+}

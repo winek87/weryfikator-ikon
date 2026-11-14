@@ -1,0 +1,21 @@
+# ── wymagane ───────────────────────────────────────────────────
+# (brak — wszystko działa na czystym Pythonie 3.10+)
+
+# ── opcjonalne ─────────────────────────────────────────────────
+# wcwidth — dokładny pomiar szerokości znaków w terminalu.
+# Bez tego skaner działa tylko na heurystyce Unicode (bez porównania
+# metod). Nie jest wymagane do działania — tylko do pełnej diagnostyki.
+#
+# Instalacja:
+#   pip install wcwidth
+# lub:
+#   pip install -r requirements.txt
+wcwidth>=0.2.5
+
+# ── opcjonalne (tylko Windows / embedded Python) ───────────────
+# gnureadline — jeśli `import readline` nie działa w Twoim Pythonie
+# (wizard potrzebuje go do strzałek/backspace). Na Linuksie/macOS
+# readline jest wbudowany, więc NIE instaluj tego bez potrzeby —
+# może kolidować z systemowym readline.
+#
+# gnureadline>=8.1.0 ; sys_platform == "win32"

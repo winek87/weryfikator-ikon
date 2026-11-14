@@ -1,0 +1,393 @@
+{
+  "name": "misc",
+  "description": "Zamienniki dla pozostałych emoji: pogoda, komunikacja, symbole, narzędzia. Zawiera 51 wpisów w trzech kategoriach: (1) MAŁA — BMP text-default (☀ ☁ ☂ ☎ ✉ ❤ ✏ ★ ✂), (2) OK — emoji default bez zmian (⌚ ⌛ ⏰ 🔧 ⚡ ⭐ ⭕ ✅ ❌ ❓ ❗), (3) FRAGILE — astralne Emoji_Presentation=No (🛡 🗡 🕯 🕰 🕵 🕶 🕹 🖥 🖨 🖱 🖼 🗑 🗒 🗓 🗝 🗞 🗣 🗺 🛋 🛍 🛎 🛏 🛢 🛤 🛥 🛰 🛳 🕷). Wszystkie rec są z EMOJI_DEFAULT_BMP lub astralne z Emoji_Presentation=Yes — nigdy z VS16 (który wprowadza ROZJAZD). Nie duplikuje 5 kluczy z 10_settings.json (🗂 🗃 🗄 🛠 🗜). Pozostałe ~30 FRAGILE z ASTRAL_TEXT_DEFAULT (np. 🌡 🏔 🖐) czekają na własne wpisy, gdy pojawią się w kodzie.",
+  "version": "3.0",
+  "replacements": {
+    "☀": {
+      "rec": "🌞",
+      "alt": [
+        "[S]",
+        "[SUN]"
+      ],
+      "why": "U+2600 BMP text-default (mały); U+1F31E emoji default — słońce z twarzą"
+    },
+    "☁": {
+      "rec": "⛅",
+      "alt": [
+        "[C]",
+        "[CLOUD]"
+      ],
+      "why": "U+2601 BMP text-default (mały); U+26C5 emoji default — słońce za chmurą. UWAGA: 🌧 (U+1F327) jest FRAGILE, nie używaj."
+    },
+    "☂": {
+      "rec": "🌂",
+      "alt": [
+        "[U]",
+        "☂ (text)"
+      ],
+      "why": "U+2602 BMP text-default (mały); U+1F302 emoji default — zamknięty parasol"
+    },
+    "☎": {
+      "rec": "📞",
+      "alt": [
+        "[T]",
+        "[TEL]"
+      ],
+      "why": "U+260E BMP text-default (mały); U+1F4DE emoji default — słuchawka"
+    },
+    "✉": {
+      "rec": "📧",
+      "alt": [
+        "📨",
+        "[M]",
+        "[MAIL]"
+      ],
+      "why": "U+2709 BMP text-default (mały); U+1F4E7 emoji default — e-mail"
+    },
+    "❤": {
+      "rec": "💖",
+      "alt": [
+        "[<3]",
+        "❤ (text)"
+      ],
+      "why": "U+2764 BMP text-default (mały); U+1F496 emoji default — serce z iskrą. Uwaga: ❤️ (z VS16) daje ROZJAZD."
+    },
+    "♥": {
+      "rec": "💖",
+      "alt": [
+        "[<3]"
+      ],
+      "why": "U+2665 BMP text-default (mały, Emoji=No ale w 30_text_default_bmp); U+1F496 emoji default"
+    },
+    "✏": {
+      "rec": "📝",
+      "alt": [
+        "[E]",
+        "[EDIT]"
+      ],
+      "why": "U+270F BMP text-default (mały); U+1F4DD emoji default — notatka"
+    },
+    "✎": {
+      "rec": "📝",
+      "alt": [
+        "[E]",
+        "[EDIT]"
+      ],
+      "why": "U+270E nie jest formalnie emoji (Emoji=No, w 35_small_symbols); U+1F4DD emoji default"
+    },
+    "★": {
+      "rec": "⭐",
+      "alt": [
+        "[★]",
+        "[*]"
+      ],
+      "why": "U+2605 nie jest formalnie emoji (Emoji=No, w 35_small_symbols); U+2B50 emoji default"
+    },
+    "☆": {
+      "rec": "⭐",
+      "alt": [
+        "[☆]",
+        "[*]"
+      ],
+      "why": "U+2606 nie jest formalnie emoji (Emoji=No, w 35_small_symbols); U+2B50 emoji default"
+    },
+    "✂": {
+      "rec": "[X]",
+      "alt": [
+        "[CUT]",
+        "✂ (text)"
+      ],
+      "why": "U+2702 BMP text-default (mały); brak emoji default dla nożyczek. ASCII [X] najbezpieczniejsze — UWAGA: ✂️ (z VS16) daje ROZJAZD, nie używaj."
+    },
+    "⌚": {
+      "rec": "⌚",
+      "alt": [],
+      "why": "OK — U+231A emoji default (Emoji_Presentation=Yes), nie wymaga zmiany"
+    },
+    "⌛": {
+      "rec": "⌛",
+      "alt": [],
+      "why": "OK — U+231B emoji default (Emoji_Presentation=Yes), nie wymaga zmiany"
+    },
+    "⏰": {
+      "rec": "⏰",
+      "alt": [],
+      "why": "OK — U+23F0 emoji default (Emoji_Presentation=Yes), nie wymaga zmiany"
+    },
+    "🔧": {
+      "rec": "🔧",
+      "alt": [],
+      "why": "OK — U+1F527 emoji default (astralny), nie wymaga zmiany"
+    },
+    "⚡": {
+      "rec": "🔋",
+      "alt": [
+        "🔌",
+        "💡",
+        "🚀"
+      ],
+      "why": "U+26A1 w niektórych fontach renderuje się mało (mimo Emoji_Presentation=Yes). U+1F50B/U+1F50C/U+1F4A1/U+1F680 — astralne emoji default, zawsze duże w każdym foncie. VS16 (⚡️) NIE pomaga — to ten sam glif, problem jest w foncie."
+    },
+    "⭐": {
+      "rec": "⭐",
+      "alt": [],
+      "why": "OK — U+2B50 emoji default (Emoji_Presentation=Yes), nie wymaga zmiany"
+    },
+    "⭕": {
+      "rec": "⭕",
+      "alt": [],
+      "why": "OK — U+2B55 emoji default (Emoji_Presentation=Yes), nie wymaga zmiany"
+    },
+    "✅": {
+      "rec": "✅",
+      "alt": [],
+      "why": "OK — U+2705 emoji default (Emoji_Presentation=Yes), nie wymaga zmiany"
+    },
+    "❌": {
+      "rec": "❌",
+      "alt": [],
+      "why": "OK — U+274C emoji default (Emoji_Presentation=Yes), nie wymaga zmiany"
+    },
+    "❓": {
+      "rec": "❓",
+      "alt": [],
+      "why": "OK — U+2753 emoji default (Emoji_Presentation=Yes), nie wymaga zmiany"
+    },
+    "❗": {
+      "rec": "❗",
+      "alt": [],
+      "why": "OK — U+2757 emoji default (Emoji_Presentation=Yes), nie wymaga zmiany"
+    },
+    "🛡": {
+      "rec": "🔰",
+      "alt": [
+        "⚔",
+        "[S]",
+        "[SHIELD]",
+        "🛑",
+        "🌐",
+        "📡",
+        "🔥",
+        "🔒"
+      ],
+      "why": "U+1F6E1 ASTRAL_TEXT_DEFAULT (FRAGILE — font może ciąć); U+1F530 emoji default — symbol tarczy"
+    },
+    "🗡": {
+      "rec": "🔪",
+      "alt": [
+        "[D]",
+        "[DAGGER]"
+      ],
+      "why": "U+1F5E1 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F52A emoji default — nóż kuchenny"
+    },
+    "🕯": {
+      "rec": "💡",
+      "alt": [
+        "[C]",
+        "[CANDLE]"
+      ],
+      "why": "U+1F56F ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4A1 emoji default — żarówka"
+    },
+    "🕰": {
+      "rec": "⏰",
+      "alt": [
+        "[T]",
+        "[CLOCK]"
+      ],
+      "why": "U+1F570 ASTRAL_TEXT_DEFAULT (FRAGILE); U+23F0 emoji default — budzik"
+    },
+    "🕵": {
+      "rec": "🔍",
+      "alt": [
+        "[?]",
+        "[DETECTIVE]"
+      ],
+      "why": "U+1F575 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F50D emoji default — lupa"
+    },
+    "🕶": {
+      "rec": "😎",
+      "alt": [
+        "[8]",
+        "[COOL]"
+      ],
+      "why": "U+1F576 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F60E emoji default — twarz w okularach"
+    },
+    "🕹": {
+      "rec": "🎮",
+      "alt": [
+        "[J]",
+        "[JOY]"
+      ],
+      "why": "U+1F579 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F3AE emoji default — pad do gier"
+    },
+    "🖥": {
+      "rec": "💻",
+      "alt": [
+        "[D]",
+        "[DESKTOP]"
+      ],
+      "why": "U+1F5A5 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4BB emoji default — laptop"
+    },
+    "🖨": {
+      "rec": "📠",
+      "alt": [
+        "[P]",
+        "[PRINT]"
+      ],
+      "why": "U+1F5A8 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4E0 emoji default — faks"
+    },
+    "🖱": {
+      "rec": "[M]",
+      "alt": [
+        "[MOUSE]",
+        "🖱 (text)"
+      ],
+      "why": "U+1F5B1 ASTRAL_TEXT_DEFAULT (FRAGILE); brak emoji default dla myszy — ASCII [M] najbezpieczniejsze"
+    },
+    "🖼": {
+      "rec": "🎨",
+      "alt": [
+        "[I]",
+        "[IMG]"
+      ],
+      "why": "U+1F5BC ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F3A8 emoji default — paleta malarska"
+    },
+    "🗑": {
+      "rec": "[X]",
+      "alt": [
+        "[TRASH]",
+        "🗑 (text)"
+      ],
+      "why": "U+1F5D1 ASTRAL_TEXT_DEFAULT (FRAGILE); brak emoji default dla kosza — ASCII [X] najbezpieczniejsze"
+    },
+    "🗒": {
+      "rec": "📝",
+      "alt": [
+        "[N]",
+        "[NOTE]"
+      ],
+      "why": "U+1F5D2 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4DD emoji default — notatka"
+    },
+    "🗓": {
+      "rec": "📅",
+      "alt": [
+        "[C]",
+        "[CAL]"
+      ],
+      "why": "U+1F5D3 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4C5 emoji default — kalendarz"
+    },
+    "🗝": {
+      "rec": "🔑",
+      "alt": [
+        "[K]",
+        "[KEY]"
+      ],
+      "why": "U+1F5DD ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F511 emoji default — klucz"
+    },
+    "🗞": {
+      "rec": "📰",
+      "alt": [
+        "[N]",
+        "[NEWS]"
+      ],
+      "why": "U+1F5DE ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4F0 emoji default — gazeta"
+    },
+    "🗣": {
+      "rec": "💬",
+      "alt": [
+        "[V]",
+        "[VOICE]"
+      ],
+      "why": "U+1F5E3 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4AC emoji default — dymek"
+    },
+    "🗺": {
+      "rec": "🌍",
+      "alt": [
+        "[M]",
+        "[MAP]"
+      ],
+      "why": "U+1F5FA ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F30D emoji default — globus"
+    },
+    "🛋": {
+      "rec": "🪑",
+      "alt": [
+        "[F]",
+        "[SOFA]"
+      ],
+      "why": "U+1F6CB ASTRAL_TEXT_DEFAULT (FRAGILE); U+1FA91 emoji default — krzesło"
+    },
+    "🛍": {
+      "rec": "🛒",
+      "alt": [
+        "[B]",
+        "[BAG]"
+      ],
+      "why": "U+1F6CD ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F6D2 emoji default — wózek sklepowy"
+    },
+    "🛎": {
+      "rec": "🔔",
+      "alt": [
+        "[B]",
+        "[BELL]"
+      ],
+      "why": "U+1F6CE ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F514 emoji default — dzwonek"
+    },
+    "🛏": {
+      "rec": "🛌",
+      "alt": [
+        "[B]",
+        "[BED]"
+      ],
+      "why": "U+1F6CF ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F6CC emoji default — osoba w łóżku"
+    },
+    "🛢": {
+      "rec": "[O]",
+      "alt": [
+        "[OIL]",
+        "🛢 (text)"
+      ],
+      "why": "U+1F6E2 ASTRAL_TEXT_DEFAULT (FRAGILE); brak emoji default dla beczki — ASCII [O] najbezpieczniejsze"
+    },
+    "🛤": {
+      "rec": "🚂",
+      "alt": [
+        "[R]",
+        "[RAIL]"
+      ],
+      "why": "U+1F6E4 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F682 emoji default — lokomotywa"
+    },
+    "🛥": {
+      "rec": "🚢",
+      "alt": [
+        "[B]",
+        "[BOAT]"
+      ],
+      "why": "U+1F6E5 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F6A2 emoji default — statek"
+    },
+    "🛰": {
+      "rec": "📡",
+      "alt": [
+        "[S]",
+        "[SAT]"
+      ],
+      "why": "U+1F6F0 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F4E1 emoji default — antena satelitarna"
+    },
+    "🛳": {
+      "rec": "🚢",
+      "alt": [
+        "[B]",
+        "[SHIP]"
+      ],
+      "why": "U+1F6F3 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F6A2 emoji default — statek"
+    },
+    "🕷": {
+      "rec": "🐛",
+      "alt": [
+        "🪲",
+        "[W]",
+        "[BUG]"
+      ],
+      "why": "U+1F577 ASTRAL_TEXT_DEFAULT (FRAGILE); U+1F41B emoji default — gąsienica/robak. Uwaga: 🕸 (U+1F578) też jest FRAGILE."
+    }
+  }
+}

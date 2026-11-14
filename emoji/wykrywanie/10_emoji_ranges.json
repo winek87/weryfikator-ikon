@@ -1,0 +1,93 @@
+{
+  "name": "emoji_ranges",
+  "description": "Zakresy Unicode klasyfikowane jako emoji. Każdy zakres obejmuje blok, który Unicode 15.1 oznacza jako zawierający emoji (Emoji=Yes). Skaner używa tych zakresów do rozpoznawania znaków, których nie ma w bardziej szczegółowych zbiorach (EMOJI_DEFAULT_BMP, TEXT_DEFAULT_BMP, ASTRAL_TEXT_DEFAULT).",
+  "version": "1.1",
+  "codepoints": [],
+  "ranges": [
+    {
+      "start": "U+1F300",
+      "end": "U+1F5FF",
+      "kind": "EMOJI",
+      "label": "Misc Symbols and Pictographs — pogoda, przedmioty, biuro, transport (np. U+1F4C1 folder, U+1F527 klucz)"
+    },
+    {
+      "start": "U+1F600",
+      "end": "U+1F64F",
+      "kind": "EMOJI",
+      "label": "Emoticons — buźki (np. U+1F600 uśmiech, U+1F622 łza)"
+    },
+    {
+      "start": "U+1F680",
+      "end": "U+1F6FF",
+      "kind": "EMOJI",
+      "label": "Transport and Map Symbols — pojazdy, znaki drogowe (np. U+1F680 rakieta, U+1F6AA drzwi)"
+    },
+    {
+      "start": "U+1F700",
+      "end": "U+1F77F",
+      "kind": "EMOJI",
+      "label": "Alchemical Symbols — symbole alchemiczne (głównie astronomiczne, w praktyce rzadko używane jako emoji)"
+    },
+    {
+      "start": "U+1F780",
+      "end": "U+1F7FF",
+      "kind": "EMOJI",
+      "label": "Geometric Shapes Extended — strzałki, kształty"
+    },
+    {
+      "start": "U+1F800",
+      "end": "U+1F8FF",
+      "kind": "EMOJI",
+      "label": "Supplemental Arrows-C — dodatkowe strzałki"
+    },
+    {
+      "start": "U+1F900",
+      "end": "U+1F9FF",
+      "kind": "EMOJI",
+      "label": "Supplemental Symbols and Pictographs — nowsze emoji (np. U+1F9F0 skrzynka narzędziowa, U+1F9EA probówka)"
+    },
+    {
+      "start": "U+1FA00",
+      "end": "U+1FA6F",
+      "kind": "EMOJI",
+      "label": "Chess Symbols — symbole szachowe (głównie Unicode 11, w praktyce rzadko używane jako emoji)"
+    },
+    {
+      "start": "U+1FA70",
+      "end": "U+1FAFF",
+      "kind": "EMOJI",
+      "label": "Symbols and Pictographs Extended-A — najnowsze emoji (np. U+1FA7A stetoskop, U+1FA91 krzesło)"
+    },
+    {
+      "start": "U+2600",
+      "end": "U+26FF",
+      "kind": "EMOJI",
+      "label": "Misc Symbols — pogoda, znaki, symbole (np. U+2600 słońce, U+26A1 błyskawica, U+26A0 warning)"
+    },
+    {
+      "start": "U+2700",
+      "end": "U+27BF",
+      "kind": "EMOJI",
+      "label": "Dingbats — ikony, symbole, ozdoby (np. U+2705 zielony check, U+274C czerwony X, U+2713 check mark)"
+    },
+    {
+      "start": "U+2300",
+      "end": "U+23FF",
+      "kind": "EMOJI",
+      "label": "Misc Technical — zegary, techniczne symbole (np. U+231A zegarek, U+23F0 budzik)"
+    },
+    {
+      "start": "U+2B00",
+      "end": "U+2BFF",
+      "kind": "EMOJI",
+      "label": "Misc Symbols and Arrows — gwiazdy, strzałki, kształty (np. U+2B50 gwiazda, U+2B55 okrąg)"
+    },
+    {
+      "start": "U+1F1E6",
+      "end": "U+1F1FF",
+      "kind": "EMOJI",
+      "label": "Regional Indicator Symbols — litery A–Z używane do flag (np. U+1F1F5 U+1F1F1 = flaga Polski)"
+    }
+  ],
+  "sets": {}
+}

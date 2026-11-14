@@ -1,0 +1,18 @@
+{
+  "name": "font_risky_bmp",
+  "description": "BMP-owe znaki z Emoji_Presentation=Yes, które renderują się mało w niektórych fontach (Font Awesome, nerd-fonty, starsze fonty bez Noto Color Emoji). Kategoria FONT_RISK. Lista jest **obserwacyjna** — zawiera tylko znaki realnie widziane jako problematyczne w konkretnym środowisku. Potwierdzone źle: ⚡ ☔ ☕ ⭐. Niepewne: ❗ (przesunięty w lewo). Nieprzetestowane: ❔ ❕. Potwierdzone dobrze (usunięte): ⌚ ⌛ ❓. Bezpieczne BMP emoji (✅ ❌ ✨ ⭕) renderują się poprawnie.",
+  "version": "1.3",
+  "codepoints": [],
+  "ranges": [],
+  "sets": {
+    "FONT_RISKY_BMP": [
+      "U+26A1",
+      "U+2614",
+      "U+2615",
+      "U+2B50",
+      "U+2754",
+      "U+2755",
+      "U+2757"
+    ]
+  }
+}

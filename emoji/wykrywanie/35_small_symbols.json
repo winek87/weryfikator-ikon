@@ -1,0 +1,28 @@
+{
+  "name": "small_symbols",
+  "description": "Symbole tekstowe z Emoji=No, które nie są formalnie emoji, ale są powszechnie używane jako ikony w menu terminalowych — renderują się małe i monochromatyczne, podobnie jak BMP text-presentation emoji. Uzupełnienie TEXT_DEFAULT_BMP: loader scala ten zbiór z 30_text_default_bmp.json, więc measure_both traktuje te znaki jak MAŁA. Wpisy są rozłączne z 30_text_default_bmp.json (sprawdzone: zero duplikatów).",
+  "version": "1.0",
+  "codepoints": [],
+  "ranges": [],
+  "sets": {
+    "TEXT_DEFAULT_BMP": [
+      "U+2605",
+      "U+2606",
+      "U+2610",
+      "U+2612",
+      "U+266A",
+      "U+266B",
+      "U+266C",
+      "U+2701",
+      "U+2706",
+      "U+2707",
+      "U+270E",
+      "U+2710",
+      "U+2711",
+      "U+2713",
+      "U+2715",
+      "U+2717",
+      "U+2718"
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+# ════════════════════════════════════════════════════════════════
+# emoji-check.yml — CI dla emoji-scanner
+# ════════════════════════════════════════════════════════════════
+# Uruchamia na każdy push i pull request:
+#   1. Testy jednostkowe (pytest)
+#   2. Linting (ruff)
+#   3. Skanowanie emoji w kodzie Pythona (scan_emoji.py --strict)
+#
+# Macierz Pythona: 3.10, 3.11, 3.12, 3.13 (zgodnie z requires-python).
+#
+# Skanowanie emoji:
+#   Skanuje TYLKO scan_emoji.py (top-level CLI). Reszta projektu ma
+#   emoji celowo:
+#     - src/                          ← Rust Dashboard (emoji default)
+#     - target/                       ← artefakty builda cargo
+#     - tests/                        ← fixture'y (emoji default)
+#     - emoji/*.py, tools/*.py        ← docstringi, przykłady
+#     - emoji/wykrywanie/*.json       ← DANE (label, reason)
+#     - emoji/zamienniki/*.json       ← DANE (rec, alt, why)
+#     - README.md                     ← dokumentacja
+#
+# scan_emoji.py jest jedynym plikiem, który wyświetla emoji użytkownikowi
+# (przez print_report). Jeśli tam są emoji z problemem, CI failuje.
+# ════════════════════════════════════════════════════════════════
+
+name: emoji-check
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:   # ręczne uruchomienie z zakładki Actions
+
+jobs:
+  test:
+    name: "Python ${{ matrix.python-version }}"
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: |
+            pyproject.toml
+            requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[full,dev]"
+
+      - name: Verify installation
+        run: |
+          python -c "import emoji; print(f'emoji-scanner {emoji.__version__}')"
+          python -c "from wcwidth import wcswidth; print(f'wcwidth OK: wcswidth(\"🔧\") = {wcswidth(\"🔧\")}')"
+
+      # ── 1. Testy jednostkowe ───────────────────────────────────
+      - name: Run pytest
+        run: pytest tests/ -v --tb=short
+
+      # ── 2. Linting ────────────────────────────────────────────
+      - name: Run ruff (lint)
+        run: ruff check .
+
+      # ── 3. Skanowanie emoji w kodzie produkcyjnym ────────────
+      # Skanujemy TYLKO scan_emoji.py (top-level CLI, jedyny plik,
+      # który wyświetla emoji użytkownikowi przez print_report).
+      # Reszta (emoji/*.py, tools/*.py, tests/, README.md,
+      # emoji/wykrywanie/*.json) ma emoji celowo — w docstringach,
+      # przykładach, testach lub danych (label, reason).
+      - name: Scan CLI source for problematic emoji
+        run: |
+          python scan_emoji.py scan_emoji.py --strict --quiet
+
+  # ── osobny job: sanity check pluginów ────────────────────────
+  # Uruchamia się raz (na Pythonie 3.12), niezależnie od macierzy.
+  # Sprawdza, że wszystkie pluginy się wczytują i że CLI działa.
+  plugins:
+    name: "Plugins & CLI"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[full]"
+
+      - name: Validate plugins
+        run: python tools/gen_plugin.py validate
+
+      - name: Inspect all plugins (smoke)
+        run: |
+          python tools/gen_plugin.py inspect 00_modifiers
+          python tools/gen_plugin.py inspect 25_astral_text_default
+          python tools/gen_plugin.py inspect 28_font_risky_bmp
+          python tools/gen_plugin.py inspect 40_misc
+
+      - name: Test scan-emoji CLI
+        run: |
+          scan-emoji --version
+          scan-emoji src/main.rs --quiet || true
+          # || true — bo w src/main.rs może być FONT_RISK (celowo)
+
+      - name: Test wizard --diagnose (bez wejścia)
+        run: |
+          echo "" | python tools/emoji_wizard.py --diagnose || true
+          # || true — bo diagnoza może chcieć tty; sprawdza tylko, że nie crashuje
