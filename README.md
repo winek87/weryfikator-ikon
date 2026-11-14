@@ -77,6 +77,8 @@ src/main.rs:107:10  [EMOJI] U+26A1  '⚡'
 
 ---
 
+[Pełna lista zmian w v0.1.0](https://github.com/winek87/weryfikator-ikon/releases/tag/v0.1.0)
+
 ## Instalacja
 
 ### Opcja 1 — bez instalacji (najprostsza)
