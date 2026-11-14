@@ -1,5 +1,7 @@
 # 🛠 emoji-scanner
 
+[![emoji-check](https://github.com/winek87/weryfikator-ikon/actions/workflows/emoji-check.yml/badge.svg)](https://github.com/winek87/weryfikator-ikon/actions/workflows/emoji-check.yml)
+
 **Skaner emoji dla plików źródłowych** — wykrywa emoji w kodzie, mierzy
 ich szerokość **dwoma metodami** (wcwidth + heurystyka Unicode),
 porównuje i raportuje problemy. Proponuje zamienniki z pluginów.
