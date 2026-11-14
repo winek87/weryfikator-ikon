@@ -132,15 +132,29 @@ def test_scan_synthetic_file(tmp_path, basic_detection):
 
 
 def test_scan_only_kinds_filter(tmp_path, basic_detection):
-    """--vs16 → tylko VS16."""
+    """
+    --vs16 → tylko klastry zawierające VS16.
+
+    Po fixie w scanner.py (cluster_kinds): filtr sprawdza WSZYSTKIE
+    kind w klastrze, nie tylko bazowego. Dla ⚙️ (U+2699+FE0F):
+    kind = {"EMOJI", "VS16"} → łapie się na --vs16.
+
+    Uwaga: `kind` w wyniku to kind BAZOWEGO znaku ("EMOJI" dla ⚙️),
+    nie "VS16". Więc sprawdzamy po klastrze, nie po kind.
+    """
     f = tmp_path / "test.rs"
-    f.write_text("⚙️ ✅")  # 1 VS16 + 1 EMOJI
+    f.write_text("⚙️ ✅")  # klaster z VS16 + EMOJI bez VS16
 
     result = scan(f, basic_detection, only_kinds={"VS16"})
 
-    # tylko VS16 (z klastra ⚙️)
-    kinds = {r["kind"] for r in result["results"]}
-    assert kinds <= {"VS16"}
+    # Powinien znaleźć dokładnie 1 (⚙️), bo ✅ nie ma VS16
+    assert len(result["results"]) == 1, (
+        f"oczekiwano 1 (⚙️), jest {len(result['results'])}"
+    )
+
+    r = result["results"][0]
+    assert r["ch"] == "⚙"
+    assert "\uFE0F" in r["cluster"]  # VS16 obecny w klastrze
 
 
 def test_scan_error_handling(tmp_path, basic_detection):

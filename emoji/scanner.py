@@ -232,8 +232,17 @@ def scan(
             context = line.strip()[:120]
 
             for col0, cluster, ch, kind in iter_findings(line, codepoints, ranges):
-                if kinds_filter is not None and kind not in kinds_filter:
-                    continue
+                if kinds_filter is not None:
+                    # Zbierz kind bazowego + wszystkich modyfikatorów
+                    # w klastrze (np. ⚙️ = {EMOJI, VS16}).
+                    # Bez tego --vs16 pomija ⚙️, bo kind bazowego to EMOJI.
+                    cluster_kinds = {kind}
+                    for mod in cluster[len(ch):]:
+                        mk = classify(mod, codepoints, ranges)
+                        if mk:
+                            cluster_kinds.add(mk)
+                    if not (cluster_kinds & kinds_filter):
+                        continue
 
                 m = measure_both(cluster, sets, fragile_mode)
                 results.append(
